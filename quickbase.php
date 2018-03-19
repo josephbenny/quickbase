@@ -96,9 +96,7 @@
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $input);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
-		}
-		else
-		{
+		} else {
 			$ch = curl_init($input);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -108,9 +106,8 @@
 		$r = curl_exec($ch);
 		if($return_xml) {
 			$response = new SimpleXMLElement($r);
-		}
-		else {
-			$response = $r;
+		} else {
+                    $response = $r;
 		}
 		return $response;
 	}
@@ -145,30 +142,24 @@
 			$xml_packet->addChild('label',$field_name);
 			$xml_packet->addChild('type',$type);
 			
-			if ($this->user_token)
-			{
-    			$xml_packet->addChild('usertoken',$this->user_token);
+			if ($this->user_token) {
+                            $xml_packet->addChild('usertoken',$this->user_token);
 			}
-			else
-			{
-    			$xml_packet->addChild('ticket',$this->ticket);
-    		}
+			else {
+                            $xml_packet->addChild('ticket',$this->ticket);
+                        }
 			
 			$xml_packet = $xml_packet->asXML();
 			$response = $this->transmit($xml_packet, 'API_AddField');
-		}
-		else {
+		} else {
 		    
-			if ($this->user_token)
-			{
+                    if ($this->user_token) 			{
     			$url_string = $this->qb_ssl . $this->db_id. "?act=API_AddField&usertoken=". $this->user_token ."&label=" .$field_name."&type=".$type;
-    		}
-    		else
-    		{
+                    } else {
     			$url_string = $this->qb_ssl . $this->db_id. "?act=API_AddField&ticket=". $this->ticket ."&label=" .$field_name."&type=".$type;
-    		}
+                    }
 			
-			$response = $this->transmit($url_string);
+                    $response = $this->transmit($url_string);
 		}
 		if($response->errcode == 0) {
 			return $response->fid;
@@ -208,8 +199,7 @@
 			
 			$xml_packet = $xml_packet->asXML();	
 			$response = $this->transmit($xml_packet, 'API_AddRecord');
-		}
-		else {
+		} else {
 			
 			if ($this->user_token)
 			{
@@ -225,10 +215,10 @@
 				}
 			$response = $this->transmit($url_string);
 		}
-			if($response) {
-				return $response;
-			}
-			return false;
+		if($response) {
+                    return $response;
+		}
+		return false;
 	}
 	/* API_ChangePermission: https://www.quickbase.com/up/6mztyxu8/g/rc7/en/va/QuickBaseAPI.htm#_Toc126579974 */
 	public function change_permission($uname, $modify, $view, $create, $save_views, $delete, $admin) {
