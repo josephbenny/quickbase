@@ -101,7 +101,7 @@
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $input);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
 		} else {
-                    print "Not xml<br>";
+                        print "Not xml, input=$intput<br>";
 			$ch = curl_init($input);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -115,6 +115,7 @@
                     $response = $r;
 		}
                 print_r($response);
+                print "response printed after transmit<br>";
 		return $response;
 	}
 	/* API_Authenticate: http://www.quickbase.com/api-guide/index.html#authenticate.html */
