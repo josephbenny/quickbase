@@ -7,7 +7,7 @@
   $qbPassword = 'qbbjPass@2';
   $qbAppToken = 'ck34hnsd8t2jirb2i7329dz7ue3j';
   
-  $qb = new QuickBase($qbUser, $qbPassword, $qbAppToken, true, '', '', '');
+  $qb = new QuickBase($qbUser, $qbPassword, $qbAppToken, false, '', '', '');
   $qb->db_id = 'Tweets' ;
   $recordVals = array(
     array(
