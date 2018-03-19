@@ -32,33 +32,32 @@
 	var $output = "";
 	var $ticket = '';
  /* --------------------------------------------------------------------*/	
-	public function __construct($un, $pw, $user_token='', $usexml = false, $db = '', $token = '', $realm = '', $hours = '') {
+	public function __construct($un, $pw, $app_token='', $usexml = false, $db = '', $user_token = '', $realm = '', $hours = '') {
 	    	if($un) {
 			$this->user_name = $un;
 		}
 		if($pw) {
 			$this->passwd = $pw;
 		}
+                if($app_token) {
+		    $this->app_token = $token;
+                }
+                $this->xml = $usexml;
+                if($db) {
+			$this->db_id = $db;
+		}
 		if($user_token) {
 			$this->user_token = $user_token;
 		}
-		
-		if($db) {
-			$this->db_id = $db;
-		}
-		if($token) {
-			$this->app_token = $token;
-                }
 		if($realm) {
 			$this->qb_site = $realm . '.quickbase.com';
 			$this->qb_ssl = 'https://' . $realm . '.quickbase.com/db/';
 		}
 		if($hours) {
 			$this->ticketHours = (int) $hours;
-		}		
-		$this->xml = $usexml;
-		
-		if ($this->user_name) {
+                }
+                
+                if ($this->user_name) {
                     $uid = $this->authenticate();
                     print "authenticate called<br>";
                 }

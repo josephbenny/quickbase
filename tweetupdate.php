@@ -10,11 +10,11 @@
   $qb = new QuickBase($qbUser, $qbPassword, $qbAppToken, true, '', '', '');
   $qb->db_id = 'Tweets' ;
   print_r($qb);
-  print "object qb printed<br>";
+  print "<br>object qb printed<br>";
   $recordVals = array(
     array(
         'Hashtags'   => 'LowCode',
-        'Twitter Username' => 'bennyjoseph',
+        'Twitter Username' => 'josephbenny',
         'Tweet Content' => 'API added',
         'Date' => '03-18-2018'
     )
