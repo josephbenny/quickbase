@@ -101,7 +101,7 @@
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $input);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
 		} else {
-                        print "Not xml, input=$intput<br>";
+                        print "Not xml, input=$input<br>";
 			$ch = curl_init($input);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -136,9 +136,9 @@
                     
 			$url_string = $this->qb_ssl . "main?a=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
 			$response = $this->transmit($url_string);
-                        print "url_string: ".$url_string."<br>";
+                        print "<br>url_string: ".$url_string."<br>";
                         print_r($response);
-                        print "authentication response printed<br>";
+                        print "<br>authentication response printed<br>";
 		}
 		if($response) {
                         $this->ticket = $response->ticket;
