@@ -18,8 +18,8 @@ $twitter = new TwitterAPIExchange($settings);
 $string = json_decode($twitter->setGetfield($getfield)
 ->buildOauth($url, $requestMethod)
 ->performRequest(),$assoc = TRUE);
-print_r($string);
-echo "<br /";
+#rint_r($string);
+#cho "<br /";
 if($string["errors"][0]["message"] != "") {echo "<h3>Sorry, there was a problem.</h3><p>Twitter returned the following error message:</p><p><em>".$string[errors][0]["message"]."</em></p>";exit();}
 if (isset($string["statuses"])) {
         $string = $string["statuses"];
@@ -38,3 +38,4 @@ foreach($string as $items)
         echo "Listed: ". $items['user']['listed_count']."<br /><hr />";
     }
 
+    
