@@ -132,6 +132,8 @@
 		else {
 			$url_string = $this->qb_ssl . "main?act=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
 			$response = $this->transmit($url_string);
+                        print_r($response);
+                        print "authentication response printed<br>";
 		}
 		if($response) {
 			$this->ticket = $response->ticket;
