@@ -108,6 +108,8 @@
 			$this->input = $input;
 		}
 		$r = curl_exec($ch);
+                print_r($r);
+                print "r printed after curl_exec<br>";
 		if($return_xml) {
 		    $response = new SimpleXMLElement($r);
 		} else {
