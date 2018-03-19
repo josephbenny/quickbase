@@ -20,4 +20,6 @@
     )
   );
   $results = $qb->add_record($recordVals);
+  print_r($results);
+  print "results printed in tweetupdate.php";
   $rid = $results->rid;

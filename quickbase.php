@@ -114,6 +114,7 @@
 		} else {
                     $response = $r;
 		}
+                print_r($response);
 		return $response;
 	}
 	/* API_Authenticate: http://www.quickbase.com/api-guide/index.html#authenticate.html */
