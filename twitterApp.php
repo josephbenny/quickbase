@@ -27,8 +27,10 @@ if (isset($string["statuses"])) {
     echo "<h3>No records found</h3>";
     exit;
 }
+$i=1;
 foreach($string as $items)
     {
+        echo "Tweet count: ".$i;
         echo "Time and Date of Tweet: ".$items['created_at']."<br />";
         echo "Tweet: ". $items['text']."<br />";
         echo "Tweeted by: ". $items['user']['name']."<br />";
@@ -36,6 +38,7 @@ foreach($string as $items)
         echo "Followers: ". $items['user']['followers_count']."<br />";
         echo "Friends: ". $items['user']['friends_count']."<br />";
         echo "Listed: ". $items['user']['listed_count']."<br /><hr />";
+        $i++;
     }
 
     
