@@ -10,9 +10,10 @@ $settings = array(
 );
 $url = "https://api.twitter.com/1.1/search/tweets.json";
 $requestMethod = "GET";
-if (isset($_GET['user']))  {$user = $_GET['user'];}  else {$user  = "iagdotme";}
+$hashList = urlencode("#QuickBase #NoCode #LowCode #QBCommunitySummit");
+if (isset($_GET['q']))  {$q = urlencode($_GET['q']);}  else {$q  = $hashList;}
 if (isset($_GET['count'])) {$count = $_GET['count'];} else {$count = 20;}
-$getfield = "?screen_name=$user&count=$count";
+$getfield = "?q=$q&count=$count";
 $twitter = new TwitterAPIExchange($settings);
 $string = json_decode($twitter->setGetfield($getfield)
 ->buildOauth($url, $requestMethod)
