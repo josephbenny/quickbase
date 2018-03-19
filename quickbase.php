@@ -58,15 +58,16 @@
 		}		
 		$this->xml = $usexml;
 		
-		if ($this->username) {
+		if ($this->user_name) {
                     $uid = $this->authenticate();
                     print "authenticate called<br>";
                 }
                 print "uid: ".$uid."<br>";
-                print 'Authentication worked'."<br>";
+                
                 
                 if($uid) {
                     $this->user_id = $uid;
+                    print 'Authentication worked'."<br>";
                 }	
 	}
 		
