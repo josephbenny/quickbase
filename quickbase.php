@@ -133,13 +133,14 @@
 			$response = $this->transmit($xml_packet, 'API_Authenticate', $this->qb_ssl."main");
 		} else {
                     
-			$url_string = $this->qb_ssl . "main?act=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
+			$url_string = $this->qb_ssl . "main?a=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
 			$response = $this->transmit($url_string);
+                        print "url_string: ".$url_string."<br>";
                         print_r($response);
                         print "authentication response printed<br>";
 		}
 		if($response) {
-			$this->ticket = $response->ticket;
+                        $this->ticket = $response->ticket;
 			$this->user_id = $response->userid;
 		}
                 return $this->user_id;
