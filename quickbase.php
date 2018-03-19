@@ -58,17 +58,16 @@
 		}		
 		$this->xml = $usexml;
 		
-		if ($this->username)
-		{
-            $uid = $this->authenticate();
-        
-            if($uid) {
-                $this->user_id = $uid;
-            }
-        }
-		
+		if ($this->username) {
+                    $uid = $this->authenticate();
+                }
+                
+                if($uid) {
+                    $this->user_id = $uid;
+                }	
 	}
-	public function set_xml_mode($bool) {
+		
+        public function set_xml_mode($bool) {
 		$this->xml = $bool;
 	}
 	public function set_database_table($db) {
