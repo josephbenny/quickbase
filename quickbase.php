@@ -60,9 +60,10 @@
 		
 		if ($this->username) {
                     $uid = $this->authenticate();
+                    print "authenticate called<br>";
                 }
-                print "uid: ".$uid;
-                print 'Authentication worked';
+                print "uid: ".$uid."<br>";
+                print 'Authentication worked'."<br>";
                 
                 if($uid) {
                     $this->user_id = $uid;
