@@ -40,7 +40,7 @@
 			$this->passwd = $pw;
 		}
                 if($app_token) {
-		    $this->app_token = $token;
+		    $this->app_token = $app_token;
                 }
                 $this->xml = $usexml;
                 if($db) {
