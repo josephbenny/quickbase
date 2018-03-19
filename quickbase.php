@@ -76,7 +76,7 @@
 	public function set_database_table($db) {
 		$this->db_id = $db;
 	}
-	private function transmit($input, $action_name = "", $url = "", $return_xml = false) {	
+	private function transmit($input, $action_name = "", $url = "", $return_xml = true) {	
 		if($this->xml) {
 			if($url == "") {
 				$url = $this->qb_ssl. $this->db_id;
@@ -109,12 +109,12 @@
 		}
 		$r = curl_exec($ch);
 		if($return_xml) {
-			$response = new SimpleXMLElement($r);
+		    $response = new SimpleXMLElement($r);
 		} else {
                     $response = $r;
 		}
                 print_r($response);
-                print "response printed after transmit<br>";
+                print "<br>response printed after transmit<br>";
 		return $response;
 	}
 	/* API_Authenticate: http://www.quickbase.com/api-guide/index.html#authenticate.html */
@@ -133,6 +133,7 @@
 			$response = $this->transmit($xml_packet, 'API_Authenticate', $this->qb_ssl."main");
 		} else {
                     
+                        #https://quickbase.com/db/main?a=API_Authenticate&username=bennyquickbase&password=qbbjPass23&hours=24
 			$url_string = $this->qb_ssl . "main?a=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
 			$response = $this->transmit($url_string);
                         print "<br>url_string: ".$url_string."<br>";
