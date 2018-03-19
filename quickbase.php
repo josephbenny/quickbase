@@ -32,7 +32,7 @@
 	var $output = "";
 	var $ticket = '';
  /* --------------------------------------------------------------------*/	
-	public function __construct($un, $pw, $user_token='', $usexml = true, $db = '', $token = '', $realm = '', $hours = '') {
+	public function __construct($un, $pw, $user_token='', $usexml = false, $db = '', $token = '', $realm = '', $hours = '') {
 	    	if($un) {
 			$this->user_name = $un;
 		}
@@ -61,6 +61,8 @@
 		if ($this->username) {
                     $uid = $this->authenticate();
                 }
+                print "uid: ".$uid;
+                print 'Authentication worked';
                 
                 if($uid) {
                     $this->user_id = $uid;
@@ -73,7 +75,7 @@
 	public function set_database_table($db) {
 		$this->db_id = $db;
 	}
-	private function transmit($input, $action_name = "", $url = "", $return_xml = true) {	
+	private function transmit($input, $action_name = "", $url = "", $return_xml = false) {	
 		if($this->xml) {
 			if($url == "") {
 				$url = $this->qb_ssl. $this->db_id;
@@ -97,6 +99,7 @@
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $input);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
 		} else {
+                    print "Not xml<br>";
 			$ch = curl_init($input);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
