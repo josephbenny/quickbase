@@ -130,8 +130,8 @@
 			$xml_packet->addChild('ticket',$this->ticket);
 			$xml_packet = $xml_packet->asXML();
 			$response = $this->transmit($xml_packet, 'API_Authenticate', $this->qb_ssl."main");
-		}
-		else {
+		} else {
+                    
 			$url_string = $this->qb_ssl . "main?act=API_Authenticate&username=" . $this->user_name ."&password=" . $this->passwd;
 			$response = $this->transmit($url_string);
                         print_r($response);
@@ -141,6 +141,7 @@
 			$this->ticket = $response->ticket;
 			$this->user_id = $response->userid;
 		}
+                return $this->user_id;
 	}
 	/* API_AddField: http://www.quickbase.com/api-guide/index.html#add_field.html */
 	public function add_field ($field_name, $type) {

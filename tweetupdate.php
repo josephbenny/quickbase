@@ -10,6 +10,7 @@
   $qb = new QuickBase($qbUser, $qbPassword, $qbAppToken, false, '', '', '');
   $qb->db_id = 'Tweets' ;
   print_r($qb);
+  print "object qb printed<br>";
   $recordVals = array(
     array(
         'Hashtags'   => 'LowCode',
