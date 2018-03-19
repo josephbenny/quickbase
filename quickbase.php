@@ -82,8 +82,8 @@
 				$url = $this->qb_ssl. $this->db_id;
 			}	
 			$content_length = strlen($input);
+                        //	"POST /db/".$this->db_id." HTTP/1.0",
 			$headers = array(
-				"POST /db/".$this->db_id." HTTP/1.0",
 				"Content-Type: text/xml;",
                                 "Accept: text/xml",
                                 "Cache-Control: no-cache",
@@ -107,9 +107,11 @@
 			curl_setopt($ch, CURLOPT_POST, true); 
 			$this->input = $input;
 		}
+                print_r($ch);
+                print "<br>ch printed<br>";
 		$r = curl_exec($ch);
                 print_r($r);
-                print "r printed after curl_exec<br>";
+                print "<br>r printed after curl_exec<br>";
 		if($return_xml) {
 		    $response = new SimpleXMLElement($r);
 		} else {
