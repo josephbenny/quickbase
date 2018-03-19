@@ -10,7 +10,7 @@ $settings = array(
 );
 $url = "https://api.twitter.com/1.1/search/tweets.json";
 $requestMethod = "GET";
-$hashList = urlencode("#QuickBase #NoCode #LowCode #QBCommunitySummit");
+$hashList = urlencode("#QuickBase OR #NoCode OR #LowCode OR #QBCommunitySummit");
 if (isset($_GET['q']))  {$q = urlencode($_GET['q']);}  else {$q  = $hashList;}
 if (isset($_GET['count'])) {$count = $_GET['count'];} else {$count = 20;}
 $getfield = "?q=$q&count=$count";
